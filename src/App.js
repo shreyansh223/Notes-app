@@ -30,22 +30,15 @@ const App = () => {
   ]);
   const [darkMode, setDarkMode] = useState('false');
   const [searchText, setSearchText] = useState('');
-  // useEffect(() => {
-  //   const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
-  //   if (savedNotes) {
-  //     setNotes(savedNotes);
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
-  // }, [notes]);
+
   var count = 0;
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
 
-    if (savedNotes) {
+    if (savedNotes && count == 0) {
       setNotes(savedNotes);
       console.log(savedNotes);
+      count++;
     }
   }, []);
 
