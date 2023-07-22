@@ -4,14 +4,16 @@ const Header = ({ handleDarkMode }) => {
   return (
     <div className="header">
       <h1>Notes</h1>
-      <button
-        onClick={() => {
-          handleDarkMode((previousDarkMode) => !previousDarkMode);
-        }}
-        className="save"
-      >
-        Toggle Mode
-      </button>
+      <label class="switch">
+        <input
+          type="checkbox"
+          id="dark-mode-toggle"
+          onClick={() => {
+            handleDarkMode((previousDarkMode) => !previousDarkMode);
+          }}
+        />
+        <span class="slider round"></span>
+      </label>
     </div>
   );
 };

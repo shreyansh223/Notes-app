@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
 import { useEffect, useState } from 'react';
-import AddNote from './components/AddNote';
+
 import Search from './components/search';
 import Header from './components/Header';
 
@@ -34,8 +34,7 @@ const App = () => {
   var count = 0;
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
-
-    if (savedNotes && count == 0) {
+    if (savedNotes && count === 0) {
       setNotes(savedNotes);
       console.log(savedNotes);
       count++;
@@ -62,7 +61,7 @@ const App = () => {
   };
 
   return (
-    <div className={`ab ${darkMode && 'dark-mode'} `}>
+    <div className={`ab ${darkMode && 'dark-mode'}`}>
       <div className="container">
         <Header handleDarkMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} />
