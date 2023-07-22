@@ -118,28 +118,33 @@ input:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #010101;
   border-radius: 34px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
 }
 
 .slider:before {
   position: absolute;
-  content: '';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  content: '🌙';
   height: 26px;
   width: 26px;
   left: 4px;
-  bottom: 4px;
-  background-color: white;
+  bottom: 5px;
+
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #ffffff;
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
+  content: '🔆';
 }
