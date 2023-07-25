@@ -33,8 +33,8 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    console.log(notes);
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
+    console.log(notes);
     if (savedNotes) {
       setNotes(savedNotes);
     }
