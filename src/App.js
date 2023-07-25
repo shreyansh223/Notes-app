@@ -31,10 +31,9 @@ const App = () => {
   const [darkMode, setDarkMode] = useState('false');
   const [searchText, setSearchText] = useState('');
 
-  var count = 0;
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
-    if (savedNotes && count === 0) {
+    if (savedNotes) {
       setNotes(savedNotes);
       console.log(savedNotes);
       count++;
