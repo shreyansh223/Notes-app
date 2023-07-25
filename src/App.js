@@ -6,6 +6,9 @@ import Search from './components/search';
 import Header from './components/Header';
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState('false');
+  const [searchText, setSearchText] = useState('');
+
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -28,15 +31,12 @@ const App = () => {
       date: '30/04/2021',
     },
   ]);
-  const [darkMode, setDarkMode] = useState('false');
-  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
+    console.log(notes);
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
     if (savedNotes) {
       setNotes(savedNotes);
-      console.log(savedNotes);
-      count++;
     }
   }, []);
 
