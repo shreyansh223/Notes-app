@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState('');
-  var Note_length = 200;
 
   const [noteLength, setnoteLength] = useState('200');
   const handleChange = (e) => {
