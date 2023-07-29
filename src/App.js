@@ -8,7 +8,8 @@ import Header from './components/Header';
 const App = () => {
   const [darkMode, setDarkMode] = useState('false');
   const [searchText, setSearchText] = useState('');
-
+  const [lightTheme, setLightTheme] = useState('');
+  const [darkTheme, setDarkTheme] = useState('');
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -59,11 +60,23 @@ const App = () => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
+  if (document.querySelector('#main') && !darkMode) {
+    document.querySelector('#main').style.backgroundColor = lightTheme;
+  }
+  if (document.querySelector('#main') && darkMode) {
+    document.querySelector('#main').style.backgroundColor = darkTheme;
+  }
 
   return (
-    <div className={`ab ${darkMode && 'dark-mode'}`}>
+    <div className={`ab ${darkMode && 'dark-mode'}`} id="main">
       <div className="container">
-        <Header handleDarkMode={setDarkMode} />
+        <Header
+          handleDarkMode={setDarkMode}
+          handleLightTheme={setLightTheme}
+          handleDarkTheme={setDarkTheme}
+          lightTheme={lightTheme}
+          darkTheme={darkTheme}
+        />
         <Search handleSearchNote={setSearchText} />
         <NotesList
           notes={notes.filter((note) =>
